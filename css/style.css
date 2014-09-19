@@ -1,0 +1,18 @@
+body{
+	background: url( 'http://i.imgur.com/OzkwNfj.jpg') center;
+	background-size: cover;
+}
+
+#container{
+	background: grey;
+	width: 500px;
+	height: 500px;
+	
+}
+
+.tile{
+	float: left;
+	background: red;
+	height: 50%;
+	width: 50%;
+}
