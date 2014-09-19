@@ -2,10 +2,8 @@
     'use strict';
 
     var Colourify = function() {
-        console.log( "Colourify runnin'" )
-    };
 
-	Colourify.prototype.version = "v1.00";
+    };
 
 	//default stuff
 	Colourify.prototype.merge_options = function(a, b) {
@@ -37,12 +35,11 @@
 	// to an expression which I can evaluate
 	// I also can't figure out how to run f_in (from color_finder.r() ) for some reason.
 	Colourify.prototype.f_in = function( f ){ 
-		console.log( f );
-		var x = 1;
-		var y = 2;
-		console.log( window[f] );
+		console.log( f ); 
 	}
 	
+	//makes useful variables available.
+	//i have no idea if this is a bad way to do this
 	Colourify.prototype.setup = function(){
 		this.n = this.options.n
 		this.dimensions = 100 / this.n + "%"
@@ -62,7 +59,7 @@
 	//build colour block
 	Colourify.prototype.tiler = function( x , y ){
 		var div = document.createElement("div");
-		var color = this.color_finder.r(x,y) //need this to be more easily selectable.
+		var color = this.color_finder.r(x,y) //need this to be more easily selectable. we can use conditionals based of a value in setup
 		var node = document.createTextNode(color);
 		div.className = "tile";
 		div.style.background = color;
