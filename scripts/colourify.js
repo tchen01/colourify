@@ -27,9 +27,19 @@
 
 	}
 
-	Colourify.prototype.func = function(x, y){
-		return x + y
+	var func = function(x, y, f_in){ // why can't i get this to work outside of this. how do I use f_in?
+		return Math.round(Math.max(Math.min(
+			0.5*(x+y) //how do i take this from the other place???
+		, 255),0));
 	}
+	
+	Colourify.prototype.f_in = function( f ){ // how do i make f the phrase above in func()?
+		console.log( f );
+		var x = 1;
+		var y = 2;
+		console.log( window[f] );
+	}
+	
 	Colourify.prototype.setup = function(){
 		this.n = this.options.n
 		this.dimensions = 100 / this.n + "%"
@@ -40,8 +50,8 @@
 	Colourify.prototype.tabler = function(x,y){ //why do i need x,y?
 		for (y = 0; y < this.options.n; y++) { 
 			for (x = 0; x < this.options.n; x++) {
-			console.log("(" + x +","+ y + ")");
-			this.tiler( x, y )
+			//console.log("(" + x +","+ y + ")");
+			this.tiler( Math.round(x * this.step), Math.round(y * this.step) )
 			}
 		}
 	}
@@ -49,8 +59,10 @@
 	//build colour block
 	Colourify.prototype.tiler = function( x , y ){
 		var div = document.createElement("div");
-		var node = document.createTextNode(this.color_finder.r(x,y));
+		var color = this.color_finder.r(x,y) //need this to be more easily selectable.
+		var node = document.createTextNode(color);
 		div.className = "tile";
+		div.style.background = color;
 		div.style.width =  this.dimensions;
 		div.style.height = this.dimensions;
 		div.appendChild(node); //optionally adds text
@@ -61,18 +73,21 @@
 	
 	Colourify.prototype.color_finder = {
 		r: function(g, b){
-			var value = "(" + g +","+ b + "," g + b + ")";
-			return this.value;
+			var r = func(g, b);
+			return "rgb(" + r +","+ g +","+ b + ")"
 		},
 		g: function(r, b){
-			return "green";
+			var g = func(r, b);
+			return "rgb(" + r +","+ g +","+ b + ")";
 		},
 		b: function(r, g){
-			return "blue";
+			var b = func(r, g);
+			return "rgb(" + r +","+ g +","+ b + ")";
 		}
 	}
 	
-	Colourify.prototype.build = function(){
+	Colourify.prototype.build = function( f ){
+		this.f_in( f );
 		this.setup();
 		this.tabler();
 	}
