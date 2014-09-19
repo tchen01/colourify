@@ -27,7 +27,7 @@
 
 	var func = function(x, y, f_in){ // why can't i get this to work outside of this. how do I use f_in?
 		return Math.round(Math.max(Math.min(
-			0.5*(x+y) //how do i take this from the other place???
+			0.5*(x+5*y) + 200 //how do i take this from the other place???
 		, 255),0));
 	}
 	
@@ -65,7 +65,7 @@
 		div.style.background = color;
 		div.style.width =  this.dimensions;
 		div.style.height = this.dimensions;
-		div.appendChild(node); //optionally adds text
+		//div.appendChild(node); //optionally adds text
 		
 		var element = document.getElementById("container");
 		element.appendChild(div);
