@@ -12,10 +12,16 @@ body{
 #container{
 	padding: 15% 0 0 15%;
 	width: 500px;
-	height: 500px;
-	
+	height: 500px;	
 }
 
+#f_holder:nth-child(){
+	float: left;
+}
 .tile{
+	float: left;
+}
+
+.f_in{
 	float: left;
 }

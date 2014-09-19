@@ -11,27 +11,30 @@
 
 	<body>
 		<!-- this is so beautiful-->
-		<select id="free_color">
-			<option value="r">r</option>
-			<option value="g">g</option>
-			<option value="b">b</option>
-		</select>
-		<p> = </p>
-		<textarea class="input" id="function-input" placeholder="function"></textarea>
-		<button onclick="draw( f_in.value )"> GO </button>
-
+		<div id="f_holder">
+			<select id="free_color" class="f_in">
+				<option value="r">r</option>
+				<option value="g">g</option>
+				<option value="b">b</option>
+			</select>
+			<p class="f_in" > = </p>
+			<textarea class="input f_in" id="function-input" placeholder="function"></textarea>
+			<button class="f_in" onclick="draw()"> GO </button>
+		</div>
 		
 		<div id="container"><div>
 	
 	</body>
 	<script>
-		var f_in = document.getElementById('function-input');
+		var f_in = document.getElementById('function-input'); 
+		var e = document.getElementById('free_color')
 		
 		var colour = new Colourify();
-			colour.options({n:10});
 
-		function draw( f ){
-			colour.build( f );
+		function draw( ){
+			var ind_var = e.options[e.selectedIndex].value
+		
+			colour.build( {n:4, f: f_in.value, color: ind_var} );
 		}
 		
 		
