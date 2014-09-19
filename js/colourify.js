@@ -61,7 +61,7 @@
 		var div = document.createElement("div");
 		var color = this.color_finder.r(x,y) //need this to be more easily selectable. we can use conditionals based of a value in setup
 		var node = document.createTextNode(color);
-		div.className = "tile";
+			div.className = "tile";
 		div.style.background = color;
 		div.style.width =  this.dimensions;
 		div.style.height = this.dimensions;
@@ -86,7 +86,15 @@
 		}
 	}
 	
-	Colourify.prototype.build = function( f ){
+	Colourify.prototype.clear = function(){
+		var node = document.getElementById("container")
+		while(node.firstChild) {
+			node.removeChild(node.firstChild);
+		}
+	}
+	
+	Colourify.prototype.build = function( f ){ 
+		this.clear()
 		this.f_in( f );
 		this.setup();
 		this.tabler();

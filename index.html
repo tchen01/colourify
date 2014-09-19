@@ -10,19 +10,31 @@
 	</head>
 
 	<body>
+		<!-- this is so beautiful-->
+		<select id="free_color">
+			<option value="r">r</option>
+			<option value="g">g</option>
+			<option value="b">b</option>
+		</select>
+		<p> = </p>
+		<textarea class="input" id="function-input" placeholder="function"></textarea>
+		<button onclick="draw( f_in.value )"> GO </button>
 
-	<div id="container">
-
-	<div>
+		
+		<div id="container"><div>
 	
 	</body>
 	<script>
-	var colour = new Colourify();
-	
-	//console.log(colour.version);
-	
-	colour.options({n:10});
-	colour.build("x+2y");
+		var f_in = document.getElementById('function-input');
+		
+		var colour = new Colourify();
+			colour.options({n:10});
+
+		function draw( f ){
+			colour.build( f );
+		}
+		
+		
 	
 	</script>
 </html>

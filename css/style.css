@@ -1,10 +1,16 @@
+html{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
 body{
 	background: url( 'http://i.imgur.com/OzkwNfj.jpg') center;
 	background-size: cover;
+
 }
 
 #container{
-	background: grey;
+	padding: 15% 0 0 15%;
 	width: 500px;
 	height: 500px;
 	
@@ -12,7 +18,4 @@ body{
 
 .tile{
 	float: left;
-	background: red;
-	height: 50%;
-	width: 50%;
 }
