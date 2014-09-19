@@ -33,7 +33,10 @@
 		, 255),0));
 	}
 	
-	Colourify.prototype.f_in = function( f ){ // how do i make f the phrase above in func()?
+	// I want to replace the above function with this. I don't know how to convert the string 'f' 
+	// to an expression which I can evaluate
+	// I also can't figure out how to run f_in (from color_finder.r() ) for some reason.
+	Colourify.prototype.f_in = function( f ){ 
 		console.log( f );
 		var x = 1;
 		var y = 2;
