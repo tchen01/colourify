@@ -10,20 +10,23 @@
 	</head>
 
 	<body>
-		<!-- this is so beautiful-->
+		<!-- make GO disappear while loading-->
 		<div id="f_holder">
 			<select id="free_color" class="in">
 				<option value="r">r</option>
 				<option value="g">g</option>
 				<option value="b">b</option>
 			</select>
-			<button class="in" > = </button>
-			<textarea class="input in" id="function-input" placeholder="function">0</textarea>
+			<input class="in text" readonly value=" = " tabindex="-1"></input> <!-- this lets the text be centered vertically -->
+			<input class="input in" id="function-input" type="text" value="0" onkeydown="if (event.keyCode == 13) {draw()}"></input>
 			<button class="button in" onclick="draw()"> GO </button>
-			<button class="in" > n = </button>
-			<textarea class="input in" id="n-input" >4</textarea>
+		</div>
+		<div id="o_holder">
+			<input class="in text" readonly value="n = " tabindex="-1"></input>
+			<input class="input in" id="n-input" type="text" value="4" onkeydown="if (event.keyCode == 13) {draw()}"></input>
 		</div>
 		
+		<!-- sliders for axis to change from linear to logarithmic etc?-->
 		<div id="container"><div>
 	
 	</body>

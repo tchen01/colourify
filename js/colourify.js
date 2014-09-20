@@ -33,13 +33,12 @@
 		this.color = this.options.color;
 	}
 	
-		
 	//build grid
 	Colourify.prototype.tabler = function(x,y){ //why do i need x,y?
 		for (y = 0; y < this.n; y++) { 
 			for (x = 0; x < this.n; x++) {
 			//console.log("(" + x +","+ y + ")");
-			this.tiler( Math.round(x * this.step), Math.round(y * this.step))
+			this.tiler( Math.round(x * this.step ), Math.round(y * this.step )) // this is where axis scales can be changed
 			}
 		}
 	}
@@ -51,12 +50,12 @@
 		var color_finder = this.color_finder
 		var f = this.f
 		
-		var color = function( ){
+		var color = function( ){ // can we get this out of the loop?
 			if( c == "r"){return color_finder.r(x,y, f);}
 			else if( c == "g"){return color_finder.g(x,y,f);}
 			else if( c == "b"){return color_finder.b(x,y, f);}
-		}
-			
+		}	
+				
 		var node = document.createTextNode( color() );
 			div.className = "tile";
 		div.style.background = color();
