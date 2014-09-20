@@ -1,4 +1,4 @@
-html{
+html, body{
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -8,20 +8,66 @@ body{
 	background-size: cover;
 
 }
+#f_holder{
+	position: fixed;
+	bottom: 0;
+	background: white;
+	height: 10vh;
+	width: 100%;
+}
 
+
+.in{
+	float: left;
+	height: 100%;
+}
+select{
+	border: none;
+	color: orange;
+	font-size: 2em;
+	padding: 1em 1% 1em 2%;
+	margin-left: 2%;
+}
+
+
+textarea{
+    display: block; 
+    resize: none;
+    outline: none;
+    width: 26%;
+    border: none;
+    padding: 1.2em;
+	box-sizing: border-box;
+    font-size: 2em;
+}
+
+button{
+    border: none;
+	background: white;
+	right: 0;
+    width: 5%;
+    color: orange;
+    font-size: 2em;
+}
+
+.button:hover{
+	background: rgb(230,230,230);
+}
+
+button:focus{
+	outline: none;
+}
+
+#n-input{
+	width: 8%;
+}
 #container{
-	padding: 15% 0 0 15%;
+	padding: 10% 0 0 35%;
 	width: 500px;
 	height: 500px;	
 }
 
-#f_holder:nth-child(){
-	float: left;
-}
-.tile{
-	float: left;
-}
 
-.f_in{
+.tile{
 	float: left;
 }

@@ -12,14 +12,16 @@
 	<body>
 		<!-- this is so beautiful-->
 		<div id="f_holder">
-			<select id="free_color" class="f_in">
+			<select id="free_color" class="in">
 				<option value="r">r</option>
 				<option value="g">g</option>
 				<option value="b">b</option>
 			</select>
-			<p class="f_in" > = </p>
-			<textarea class="input f_in" id="function-input" placeholder="function"></textarea>
-			<button class="f_in" onclick="draw()"> GO </button>
+			<button class="in" > = </button>
+			<textarea class="input in" id="function-input" placeholder="function">0</textarea>
+			<button class="button in" onclick="draw()"> GO </button>
+			<button class="in" > n = </button>
+			<textarea class="input in" id="n-input" >4</textarea>
 		</div>
 		
 		<div id="container"><div>
@@ -27,6 +29,7 @@
 	</body>
 	<script>
 		var f_in = document.getElementById('function-input'); 
+		var n_in = document.getElementById('n-input'); 
 		var e = document.getElementById('free_color')
 		
 		var colour = new Colourify();
@@ -34,7 +37,7 @@
 		function draw( ){
 			var ind_var = e.options[e.selectedIndex].value
 		
-			colour.build( {n:4, f: f_in.value, color: ind_var} );
+			colour.build( {n:n_in.value, f: f_in.value, color: ind_var} );
 		}
 		
 		
