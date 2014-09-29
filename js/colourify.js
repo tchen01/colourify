@@ -28,7 +28,8 @@
 	Colourify.prototype.setup = function( f ){
 		this.n = this.options.n 
 		this.dimensions = 100 / this.n + "%"
-		this.step = 255/(this.n - 1);
+		this.xstep = 255/(this.n - 1); // change steps to ranges 
+		this.ystep = 255/(this.n - 1);
 		this.f = f;
 		this.color = this.options.color;
 	}
@@ -38,7 +39,7 @@
 		for (y = 0; y < this.n; y++) { 
 			for (x = 0; x < this.n; x++) {
 			//console.log("(" + x +","+ y + ")");
-			this.tiler( Math.round(x * this.step ), Math.round(y * this.step )) // this is where axis scales can be changed
+			this.tiler( Math.round(x * this.xstep ), Math.round(y * this.ystep )) // this is where axis scales can be changed
 			}
 		}
 	}
@@ -50,7 +51,7 @@
 		var color_finder = this.color_finder
 		var f = this.f
 		
-		var color = function( ){ // can we get this out of the loop?
+		var color = function( ){ // is there a way to move the conditional outside the loop without duplicating code?
 			if( c == "r"){return color_finder.r(x,y, f);}
 			else if( c == "g"){return color_finder.g(x,y,f);}
 			else if( c == "b"){return color_finder.b(x,y, f);}
@@ -67,6 +68,8 @@
 		element.appendChild(div);
 	}
 	
+	// probably need to implement big_num library since stuff like 170^170 becomes 0 rather than 255.
+	// improve detection of very large numbers to save time
 	Colourify.prototype.color_finder = {
 		r: function(g, b, f){
 			var r = Math.round(Math.max(Math.min(

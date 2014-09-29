@@ -4,7 +4,7 @@ html, body{
 	margin: 0;
 }
 body{
-	background: url( 'http://i.imgur.com/OzkwNfj.jpg') center;
+	background: url( 'bg.jpg') center;
 	background-size: cover;
 
 }
@@ -12,7 +12,7 @@ body{
 	position: fixed;
 	bottom: 0;
 	background: pink;
-	height: 10%;
+	height: 10vh;
 	width: 60%;
 	padding: 0 0 0 5%;
 	box-sizing: border-box;
@@ -24,7 +24,7 @@ body{
 	bottom: 0;
 	right: 0;
 	background: orange;
-	height: 10%;
+	height: 10vh;
 	width: 40%;
 	padding: 0 5% 0 5%;
 	box-sizing: border-box;
@@ -47,7 +47,7 @@ body{
 
 .text{
 	border: none;
-	width: 2em; /* change to %*/
+	width: 6%; /* change to %*/
 	padding: 0 .5em 0 .5em;
 	background: inherit;
 	font-size: inherit;	
@@ -63,7 +63,7 @@ select{
 
 .input{
 	border: none;
-	width: 15em;
+	width: 20%;
 	padding: 0 .5em 0 .5em;
 	font-size: inherit;	
 }
@@ -72,12 +72,56 @@ select{
 	width: 8%;
 }
 #container{
-	padding: 10% 0 0 35%;
-	width: 500px;
-	height: 500px;	
+  padding-top: calc( 50vh - (35vw + 10vh)/2);
+  position: absolute;
+	left: 32.5vw; 
+	width: 35vw;
+	height: 35vw;	
 }
 
 
 .tile{
 	float: left;
 }
+
+@media only screen and (max-width: 480px) {
+#container{
+  left: 0;
+	padding: 0;
+	width: 100vw;
+  height: 100vw;
+
+}
+body{
+font-size: 80%;
+
+}
+#f_holder{
+	height: 10%;
+	width: 100%;
+}
+
+#o_holder{
+	bottom: 10%;
+	width: 100%;
+}
+.button{
+	float: right;
+}
+.text{
+	border: none;
+	width: 2%; /* change to %*/
+	padding: 0 .5em 0 .5em;
+	background: inherit;
+	font-size: inherit;	
+}
+
+.in{
+	float: left;
+	height: 100%;
+	font-size: inherit;	
+}
+
+}
+
+
